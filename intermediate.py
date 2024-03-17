@@ -1,9 +1,6 @@
-'''Python: Intermediate
-
-70 points
-
-This assignment will develop your proficiency with Python's control flows.
-'''
+# Anasel-Ace M. Cañeso, 221473
+# 11 March 2024
+# Python: Intermediate
 
 def shift_letter(letter, shift):
     letters = (
@@ -85,3 +82,13 @@ def scytale_decipher(message, shift):
                 k += 1
 
     return "".join(decoded_message)
+
+"""
+I hereby attest to the truth of the following facts:
+
+I have not discussed the Python code in my program with anyone other than my instructor or the teaching assistants assigned to this course.
+
+I have not used Python code obtained from another student, or any other unauthorized source, whether modified or unmodified.
+
+If any Python code or documentation used in my program was obtained from another source, it has been clearly noted with citations in the comments of my program.
+"""

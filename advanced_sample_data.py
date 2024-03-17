@@ -1,3 +1,5 @@
+# exempted
+
 '''
 Sample data for relationship_status below:
 '''

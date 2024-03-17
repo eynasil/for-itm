@@ -1,3 +1,5 @@
+# exempted
+
 '''Python: Advanced
 
 70 points
