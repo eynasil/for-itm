@@ -14,7 +14,7 @@ def shift_letter(letter, shift):
         
 
 def caesar_cipher(message, shift):
-    message = ""
+    new_message = ""
     letters = (
         "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
     )
