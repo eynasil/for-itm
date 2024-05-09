@@ -19,6 +19,7 @@
                         <div class="mb-3">
                             <label for="dentist" class="form-label">Dentist:</label>
                             <select class="form-select" id="dentist" name="dentist" required>
+                                <option selected>Choose Dentist</option>
                                 {% for dentist in dentists %}
                                     <option value="{{ dentist }}">{{ dentist }}</option>
                                 {% endfor %}
@@ -27,6 +28,7 @@
                         <div class="mb-3">
                             <label for="room_number" class="form-label">Room Number:</label>
                             <select class="form-select" id="room_number" name="room_number" required>
+                                <option selected>Choose Room</option>
                                 {% for room in rooms %}
                                     <option value="{{ room }}">{{ room }}</option>
                                 {% endfor %}

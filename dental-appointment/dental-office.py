@@ -77,60 +77,6 @@ def add_appointment():
     else:
         return render_template('add_appointment.html')
 
-"""
-@dental.route('/add_appointment', methods=['GET', 'POST'])
-def add_appointment():
-    appointments = db.appointments_db.find({})
-    dentists = db.get_dentists()
-    if request.method == 'POST':
-            patient_name = request.form['patient']
-            appointment_date = request.form['date']
-            appointment_start_time = request.form['start_time']
-            appointment_end_time = request.form['end_time']
-            dentist_name = request.form['dentist']
-            room_number = request.form['room_number']
-            
-            # Wickramasinghe, S. (n.d.). 23 Common MongoDB Operators & How to Use them. BMC Blogs. https://www.bmc.com/blogs/mongodb-operators/
-            # Check if the denstist and room is available
-            overlapping_appointments_count = db.appointments_db.count_documents({
-                "date": appointment_date,
-                "start_time": {"$lt": appointment_end_time},
-                "end_time": {"$gt": appointment_start_time}
-            })
-            
-            if overlapping_appointments_count > 0:
-                message = "Appointment overlaps with an existing one."
-                return render_template('add_appointment.html', message=message, appointments=appointments, dentists=dentists)
-            
-            appointment = {
-                "dentist": dentist_name,
-                "patient": patient_name,
-                "date": appointment_date,
-                "start_time": appointment_start_time,
-                "end_time": appointment_end_time,
-                "room": room_number
-            }
-
-            db.appointments_db.insert_one(appointment)
-            dentist_coll = db.dentists_db.find_one({"name": dentist_name})
-            db.dentists_db.update_one(
-                {"_id": dentist_coll["_id"]},
-                {"$push": {"appointments": {
-                    "patient": patient_name,
-                    "date": appointment_date,
-                    "start_time": appointment_start_time,
-                    "end_time": appointment_end_time,
-                    "room": room_number
-                }}}
-            )
-            
-            message = "Appointment successfully scheduled."
-            return render_template('add_appointment.html', message=message, appointments=appointments, dentists=dentists)
-        
-    else:
-        return render_template('add_appointment.html', appointments=appointments, dentists=dentists)
-"""
-
 @dental.route('/cancel_appointment/<appointment_id>', methods=['POST'])
 def cancel_appointment(appointment_id):
     # ObjectID() - MongoDB Manual V7.0. (n.d.). https://www.mongodb.com/docs/manual/reference/method/ObjectId/
