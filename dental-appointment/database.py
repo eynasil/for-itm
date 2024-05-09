@@ -1,9 +1,9 @@
 import pymongo
 import datetime
 
-client = pymongo.MongoClient('mongodb://localhost:27017/')
-db = client['dentalAppointments']
-appointments_db = db['appointments']
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["dentalAppointments"]
+appointments_db = db["appointments"]
 
 def add_appointment(dentist_name, patient_name, appointment_date, appointment_time):
     appointment = {

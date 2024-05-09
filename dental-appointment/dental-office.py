@@ -1,14 +1,13 @@
 from flask import Flask,redirect
 from flask import render_template
 from flask import request
-import db
-import appointments_db as app_db
+import database as db
 
 dental = Flask(__name__)
 
 @dental.route('/')
 def home():
-    appointments = app_db.find({})
+    appointments = db.appointments_db.find({})
     return render_template('index.html', appointments=appointments)
 
 @dental.route('/add_appointment', methods=['POST'])
@@ -25,5 +24,5 @@ def add_appointment():
         "time": appointment_time
     }
     
-    app_db.insert_one(appointment)
+    db.appointments_db.insert_one(appointment)
     return redirect('/')
