@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>All Appointments</h1>
+                <a href="/add_schedule" class="btn btn-secondary">+ Add Appointment</a>
+            </div>
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Patient</th>
+                        <th>Dentist</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in appointments %}
+                        <tr>
+                            <td>{{ appointment.patient }}</td>
+                            <td>{{ appointment.dentist }}</td>
+                            <td>{{ appointment.date }}</td>
+                            <td>{{ appointment.start_time }} - {{ appointment.end_time }}</td>
+                            <td>{{ appointment.room }}</td>
+                            <td>
+                                <form action="/cancel_appointment/{{ appointment._id }}" method="post">
+                                    <input type="submit" value="Cancel" class="btn button-pink1 btn-sm">
+                                </form>                                
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>        
+{% endblock %}

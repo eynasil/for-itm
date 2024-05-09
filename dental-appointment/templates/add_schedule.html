@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Add Appointment</h1>
+                </div>
+                <div class="card-body">
+                    {% if message %}
+                        <div class="alert alert-custom" role="alert">
+                            <strong>{{ message }}</strong>
+                        </div>
+                    {% endif %}
+                    <form action="/add_schedule" method="post">
+                        <div class="mb-3">
+                            <label for="patient" class="form-label">Patient:</label>
+                            <input type="text" class="form-control" id="patient" name="patient" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date:</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="start_time" class="form-label">Start Time:</label>
+                            <input type="time" class="form-control" id="start_time" name="start_time" min="08:00" max="17:00" step="3600" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="end_time" class="form-label">End Time:</label>
+                            <input type="time" class="form-control" id="end_time" name="end_time" min="08:00" max="17:00" step="3600" required>
+                        </div>
+                        <button type="submit" class="btn button-pink1">Find Available Dentist</button>
+                    </form>
+                    <a href="/" class="btn btn btn-secondary mt-3">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

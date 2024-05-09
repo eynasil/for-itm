@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Add Schedule</h1>
+                </div>
+                <div class="card-body">
+                    {% if message %}
+                        <div class="alert alert-pink" role="alert">
+                            <strong>{{ message }}</strong>
+                        </div>
+                    {% endif %}
+                    <h3>Select a Dentist and Room for {{ date }} at {{ start_time }} - {{ end_time }}:</h3>
+                    <form action="/add_appointment" method="post">
+                        <div class="mb-3">
+                            <label for="dentist" class="form-label">Dentist:</label>
+                            <select class="form-select" id="dentist" name="dentist" required>
+                                {% for dentist in dentists %}
+                                    <option value="{{ dentist }}">{{ dentist }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="room_number" class="form-label">Room Number:</label>
+                            <select class="form-select" id="room_number" name="room_number" required>
+                                {% for room in rooms %}
+                                    <option value="{{ room }}">{{ room }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn button-pink">Add Appointment</button>
+                    </form>
+                    <a href="/" class="btn btn-secondary mt-3">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
