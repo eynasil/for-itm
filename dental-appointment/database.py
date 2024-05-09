@@ -21,7 +21,3 @@ def display_calendar():
     for single_date in range(int((end_date - start_date).days)):
         current_date = start_date + datetime.timedelta(days=single_date)
         print(f"{current_date.strftime('%Y-%m-%d')}")
-
-# SAMPLE!!!
-add_appointment("Dr. Smith", "John Doe", datetime.date(2024, 5, 15), "10:00 AM")
-display_calendar()
