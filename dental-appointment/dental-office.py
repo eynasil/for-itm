@@ -45,7 +45,7 @@ def all_appointments_by_time():
 @dental.route('/patient_history')
 def all_appointments_by_patient():
     appointments = db.appointments_db.find().sort({'patient': 1, "date": 1})
-    return render_template('per_time.html', appointments=appointments)
+    return render_template('per_patient.html', appointments=appointments)
 
 @dental.route('/add_schedule', methods=['GET', 'POST'])
 def add_schedule():
